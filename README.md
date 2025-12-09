@@ -31,69 +31,67 @@ This project develops a machine learning system that predicts University of Mary
 
 The dataset includes:
 
-Review sentiment scores computed using TextBlob
+    Review sentiment scores computed using TextBlob
 
-Complete distributions of A–F letter grades
+    Complete distributions of A–F letter grades
 
-Withdrawal counts
+    Withdrawal counts
+  
+    Section counts and total students taught
 
-Section counts and total students taught
+    Average GPA derived from grade distributions
 
-Average GPA derived from grade distributions
+    Only CMSC-affiliated professors with both ratings and grade data are included.
 
-Only CMSC-affiliated professors with both ratings and grade data are included.
-
-Feature Engineering
+# Feature Engineering
 
 Each professor is represented by the following features:
 
 Sentiment Features
 
-Average sentiment polarity of all student comments (review_sentiment)
+    Average sentiment polarity of all student comments (review_sentiment)
 
 Grade Features
 
-Average GPA based on weighted grade counts (avg_gpa)
+    Average GPA based on weighted grade counts (avg_gpa)
 
-Fraction of letter grades:
+    Fraction of letter grades:
+    
+      frac_A, frac_B, frac_C, frac_D, frac_F
 
-frac_A, frac_B, frac_C, frac_D, frac_F
-
-Course withdrawal rate (withdraw_rate)
+    Course withdrawal rate (withdraw_rate)
 
 Engagement Features
 
-Number of sections with grade data (num_sections_with_grades)
+    Number of sections with grade data (num_sections_with_grades)
 
-Total students taught (num_students_total)
+    Total students taught (num_students_total)
 
-Number of reviews submitted on PlanetTerp (num_reviews)
+    Number of reviews submitted on PlanetTerp (num_reviews)
 
-Machine Learning Models
+# Machine Learning Models
 
 Three regression models were trained and evaluated:
 
-Linear Regression
+    Linear Regression
 
-Ridge Regression
+    Ridge Regression
 
-Random Forest Regressor
+    Random Forest Regressor
 
 The models use an 75/25 train–test split.
 
-Model Performance (Representative Results)
+# Model Performance (Representative Results)
 
-Random Forest achieved the strongest predictive accuracy (R² ≈ 0.716)
+    Random Forest achieved the strongest predictive accuracy (R² ≈ 0.716)
 
-Linear Regression showed moderate performance (R² ≈ 0.523)
+    Linear Regression showed moderate performance (R² ≈ 0.523)
 
-Ridge Regression performed poorly (R² ≈ 0.10)
+    Ridge Regression performed poorly (R² ≈ 0.10)
 
 Random Forest was selected as the most effective model.
 
-Key Visualizations
-
-The project generates the following:
+# Key Visualizations
 
 Histogram of CMSC professor rating distribution
 
@@ -105,7 +103,7 @@ Random Forest feature importance ranking
 
 These plots support the analysis and interpretation of predictive behavior.
 
-Insights
+# Insights
 
 Sentiment of student comments is the dominant predictor of ratings
 
@@ -115,35 +113,6 @@ Engagement metrics (students taught, number of sections) contribute minimally
 
 A nonlinear model (Random Forest) captures relationships that linear models do not
 
-Technologies Used
-
-Python
-
-Pandas and NumPy
-
-Matplotlib
-
-scikit-learn
-
-TextBlob (sentiment analysis)
-
-PlanetTerp API
-
-Repository Structure
-project/
- ├── professor_rating_predictor.ipynb   # Full pipeline implementation
- ├── README.md                          # Project documentation
- └── images/                             # Optional exported plots
-
-Possible Extensions
-
-Replace TextBlob with transformer-based sentiment models
-
-Add time-series trends for evolving ratings
-
-Build a web interface for interactive predictions
-
-Develop clustering analyses for instructor similarity
 
 Author
 
